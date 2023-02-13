@@ -1,0 +1,49 @@
+﻿@page
+@model RB_PetHotel.Views.PetService.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New PetService</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PetServiceModel[0].DateAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PetServiceModel[0].Pet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PetServiceModel[0].Service)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PetServiceModel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.PetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PetId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PetId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PetId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@page
+@model RB_PetHotel.Views.PetRoom.CreateModel
+
+@{
+    ViewData["Title"] = "CreatePetRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>PetRoomModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PetRoomModel.RoomId" class="control-label"></label>
+                <select asp-for="PetRoomModel.RoomId" class ="form-control" asp-items="ViewBag.RoomId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetRoomModel.CheckInDate" class="control-label"></label>
+                <input asp-for="PetRoomModel.CheckInDate" class="form-control" />
+                <span asp-validation-for="PetRoomModel.CheckInDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetRoomModel.CheckOutDate" class="control-label"></label>
+                <input asp-for="PetRoomModel.CheckOutDate" class="form-control" />
+                <span asp-validation-for="PetRoomModel.CheckOutDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

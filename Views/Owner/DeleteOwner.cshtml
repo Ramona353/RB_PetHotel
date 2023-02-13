@@ -1,0 +1,40 @@
+﻿@model RB_PetHotel.Models.OwnerModel
+
+@{
+    ViewData["Title"] = "DeleteOwner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DeleteOwner</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OwnerModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteOwner">
+        <input type="hidden" asp-for="OwnerId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

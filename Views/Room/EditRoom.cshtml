@@ -1,0 +1,51 @@
+﻿@page
+@model RB_PetHotel.Views.Room.EditModel
+
+@{
+    ViewData["Title"] = "EditRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>RoomModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RoomModel.RoomId" />
+            <div class="form-group">
+                <label asp-for="RoomModel.RoomNumber" class="control-label"></label>
+                <input asp-for="RoomModel.RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomModel.RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomModel.RoomType" class="control-label"></label>
+                <input asp-for="RoomModel.RoomType" class="form-control" />
+                <span asp-validation-for="RoomModel.RoomType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomModel.Occupancy" class="control-label"></label>
+                <input asp-for="RoomModel.Occupancy" class="form-control" />
+                <span asp-validation-for="RoomModel.Occupancy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomModel.Price" class="control-label"></label>
+                <input asp-for="RoomModel.Price" class="form-control" />
+                <span asp-validation-for="RoomModel.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
