@@ -1,26 +1,21 @@
-﻿@page
-@model RB_PetHotel.Views.PetOwner.CreateModel
+﻿@model RB_PetHotel.Models.PetOwnerModel
 
 @{
     ViewData["Title"] = "CreatePetOwner";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>CreatePetOwner</h1>
 
 <h4>PetOwnerModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form asp-action="CreatePetOwner">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="PetOwnerModel.PetId" class="control-label"></label>
-                <select asp-for="PetOwnerModel.PetId" class ="form-control" asp-items="ViewBag.PetId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="PetOwnerModel.OwnerId" class="control-label"></label>
-                <select asp-for="PetOwnerModel.OwnerId" class ="form-control" asp-items="ViewBag.OwnerId"></select>
+                <label asp-for="OwnerId" class="control-label"></label>
+                <select asp-for="OwnerId" class ="form-control" asp-items="ViewBag.OwnerId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -30,7 +25,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

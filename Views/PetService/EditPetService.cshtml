@@ -1,29 +1,28 @@
-﻿@page
-@model RB_PetHotel.Views.PetService.EditModel
+﻿@model RB_PetHotel.Models.PetServiceModel
 
 @{
     ViewData["Title"] = "EditPetService";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>EditPetService</h1>
 
 <h4>PetServiceModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form asp-action="EditPetService">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PetServiceModel.PetId" />
+            <input type="hidden" asp-for="PetId" />
             <div class="form-group">
-                <label asp-for="PetServiceModel.ServiceId" class="control-label"></label>
-                <select asp-for="PetServiceModel.ServiceId" class="form-control" asp-items="ViewBag.ServiceId"></select>
-                <span asp-validation-for="PetServiceModel.ServiceId" class="text-danger"></span>
+                <label asp-for="ServiceId" class="control-label"></label>
+                <select asp-for="ServiceId" class="form-control" asp-items="ViewBag.ServiceId"></select>
+                <span asp-validation-for="ServiceId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PetServiceModel.DateAdded" class="control-label"></label>
-                <input asp-for="PetServiceModel.DateAdded" class="form-control" />
-                <span asp-validation-for="PetServiceModel.DateAdded" class="text-danger"></span>
+                <label asp-for="DateAdded" class="control-label"></label>
+                <input asp-for="DateAdded" class="form-control" />
+                <span asp-validation-for="DateAdded" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -33,7 +32,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

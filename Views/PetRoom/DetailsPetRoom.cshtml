@@ -1,38 +1,37 @@
-﻿@page
-@model RB_PetHotel.Views.PetRoom.DetailsModel
+﻿@model RB_PetHotel.Models.PetRoomModel
 
 @{
     ViewData["Title"] = "DetailsPetRoom";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>DetailsPetRoom</h1>
 
 <div>
     <h4>PetRoomModel</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.CheckInDate)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CheckInDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.CheckInDate)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckInDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.CheckOutDate)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CheckOutDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.CheckOutDate)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckOutDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.Room)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.Room.RoomId)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomId)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.PetRoomModel?.PetId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.PetId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

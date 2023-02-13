@@ -1,41 +1,40 @@
-﻿@page
-@model RB_PetHotel.Views.PetRoom.DeleteModel
+﻿@model RB_PetHotel.Models.PetRoomModel
 
 @{
     ViewData["Title"] = "DeletePetRoom";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>DeletePetRoom</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>PetRoomModel</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.CheckInDate)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CheckInDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.CheckInDate)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckInDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.CheckOutDate)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CheckOutDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.CheckOutDate)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckOutDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PetRoomModel.Room)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PetRoomModel.Room.RoomId)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomId)
         </dd>
     </dl>
     
-    <form method="post">
-        <input type="hidden" asp-for="PetRoomModel.PetId" />
+    <form asp-action="DeletePetRoom">
+        <input type="hidden" asp-for="PetId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

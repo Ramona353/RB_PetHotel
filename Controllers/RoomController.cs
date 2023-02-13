@@ -31,7 +31,7 @@ namespace RB_PetHotel.Controllers
         // GET: RoomController/Create
         public ActionResult Create()
         {
-            return View("CreateRooms");
+            return View("CreateRoom");
         }
 
         // POST: RoomController/Create

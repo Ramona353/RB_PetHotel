@@ -1,5 +1,4 @@
-﻿@page
-@model RB_PetHotel.Views.User.IndexModel
+﻿@model IEnumerable<RB_PetHotel.Models.UserModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,28 +8,28 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New User</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserModel[0].Username)
+                @Html.DisplayNameFor(model => model.Username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserModel[0].Email)
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserModel[0].Password)
+                @Html.DisplayNameFor(model => model.Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserModel[0].CreatedAt)
+                @Html.DisplayNameFor(model => model.CreatedAt)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.UserModel) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
@@ -45,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
             </td>
         </tr>
 }

@@ -1,5 +1,4 @@
-﻿@page
-@model RB_PetHotel.Views.Room.IndexModel
+﻿@model IEnumerable<RB_PetHotel.Models.RoomModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,28 +8,28 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New Room</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RoomModel[0].RoomNumber)
+                @Html.DisplayNameFor(model => model.RoomNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RoomModel[0].RoomType)
+                @Html.DisplayNameFor(model => model.RoomType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RoomModel[0].Occupancy)
+                @Html.DisplayNameFor(model => model.Occupancy)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RoomModel[0].Price)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.RoomModel) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.RoomNumber)
@@ -45,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.RoomId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.RoomId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.RoomId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RoomId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RoomId">Delete</a>
             </td>
         </tr>
 }
