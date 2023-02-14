@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 using RB_PetHotel.Data;
 using RB_PetHotel.Models;
+using System.Data;
 
 namespace RB_PetHotel.Controllers
 {
@@ -29,6 +31,7 @@ namespace RB_PetHotel.Controllers
         }
 
         // GET: RoomController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View("CreateRoom");
@@ -37,6 +40,7 @@ namespace RB_PetHotel.Controllers
         // POST: RoomController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(IFormCollection collection)
         {
             try

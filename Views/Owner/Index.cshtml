@@ -38,10 +38,17 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OwnerId">Edit</a> |
+                    @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.OwnerId">Edit</a>
+                    }
+                    |
                 <a asp-action="Details" asp-route-id="@item.OwnerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OwnerId">Delete</a>
-            </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.OwnerId">Delete</a>
+                    }
+                </td>
         </tr>
 }
     </tbody>

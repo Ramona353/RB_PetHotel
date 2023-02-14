@@ -50,10 +50,17 @@
                 @Html.DisplayFor(modelItem => item.SpecialNeeds)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PetId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PetId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PetId">Delete</a>
-            </td>
+                    @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.PetId">Edit</a>
+                    }
+                    |
+                    <a asp-action="Details" asp-route-id="@item.PetId">Details</a> |
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.PetId">Delete</a>
+                    }
+                </td>
         </tr>
 }
     </tbody>

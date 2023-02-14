@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using RB_PetHotel.Models.DBObjects;
 using RB_PetHotel.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace RB_PetHotel.Data
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext()
         {
@@ -18,12 +19,12 @@ namespace RB_PetHotel.Data
         {
         }
 
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
-        public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
-        public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
+        //public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
+        //public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
+        //public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
+        //public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
+        //public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
+        //public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Owner> Owners { get; set; } = null!;
         public virtual DbSet<Pet> Pets { get; set; } = null!;
         public virtual DbSet<PetOwner> PetOwners { get; set; } = null!;
@@ -43,7 +44,8 @@ namespace RB_PetHotel.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AspNetRole>(entity =>
+            base.OnModelCreating(modelBuilder);
+            /*modelBuilder.Entity<AspNetRole>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
                     .IsUnique()
@@ -130,7 +132,7 @@ namespace RB_PetHotel.Data
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserTokens)
                     .HasForeignKey(d => d.UserId);
-            });
+            });*/
 
             modelBuilder.Entity<Owner>(entity =>
             {
@@ -349,4 +351,5 @@ namespace RB_PetHotel.Data
 
         public DbSet<RB_PetHotel.Models.UserModel> UserModel { get; set; }
     }
+
 }

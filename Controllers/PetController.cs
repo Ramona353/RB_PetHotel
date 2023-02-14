@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RB_PetHotel.Data;
 using RB_PetHotel.Models;
+using System.Data;
 
 namespace RB_PetHotel.Controllers
 {
+    [Authorize(Roles = "User, Admin")]
     public class PetController : Controller
     {
         private Repository.PetRepository _repository;

@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RB_PetHotel.Data;
 using RB_PetHotel.Models;
+using System.Data;
 
 namespace RB_PetHotel.Controllers
 {
@@ -27,6 +29,7 @@ namespace RB_PetHotel.Controllers
         }
 
         // GET: ServiceController/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View("CreateService");
@@ -35,6 +38,7 @@ namespace RB_PetHotel.Controllers
         // POST: ServiceController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(IFormCollection collection)
         {
             try

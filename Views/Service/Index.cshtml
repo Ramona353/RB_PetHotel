@@ -38,10 +38,17 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ServiceId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ServiceId">Delete</a>
-            </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a>
+                    }
+                    |
+                    <a asp-action="Details" asp-route-id="@item.ServiceId">Details</a> |
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.ServiceId">Delete</a>
+                    }
+                </td>
         </tr>
 }
     </tbody>

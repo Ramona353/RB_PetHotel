@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RB_PetHotel.Data;
 using RB_PetHotel.Models;
+using System.Data;
 
 namespace RB_PetHotel.Controllers
 {
+    [Authorize(Roles = "User, Admin")]
     public class OwnerController : Controller
     {
         private Repository.OwnerRepository _repository;
@@ -29,7 +32,12 @@ namespace RB_PetHotel.Controllers
         // GET: OwnerController/Create
         public ActionResult Create()
         {
-            return View("CreateOwner");
+            var model = new OwnerModel();
+            if (User.Identity.IsAuthenticated)
+            {
+                model.OwnerName = User.Identity.Name;
+            }
+            return View("CreateOwner", model);
         }
 
         // POST: OwnerController/Create

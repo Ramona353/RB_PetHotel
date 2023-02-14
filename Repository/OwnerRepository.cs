@@ -22,7 +22,7 @@ namespace RB_PetHotel.Repository
         {
             List<OwnerModel> ownerList = new List<OwnerModel>();
 
-            foreach (Owner dbOwner in this.dbContext.Owners)
+            foreach (Owner dbOwner in dbContext.Owners)
             {
                 ownerList.Add(MapDbObjectToModel(dbOwner));
 
