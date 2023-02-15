@@ -2,7 +2,82 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 4em;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+</style>
+
 <div class="text-center">
     <h1 class="display-4">Pet Hotel</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>~Tehnologii moderne de programare~</p>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+    WebFont.load({
+        google: {
+            families: ['Roboto']
+        }
+    });
+</script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="slider">
+    <div>
+        <img src="https://jetpetresort.com/wp-content/uploads/2014/05/jet-palace.jpg" alt="Image 1">
+    </div>
+    <div>
+        <img src="https://howtostartanllc.com/images/business-ideas/business-idea-images/pet-hotel.jpg" alt="Image 2">
+    </div>
+    <div>
+        <img src="https://i0.wp.com/staging2.hydrantpethotel.com/wp-content/uploads/2021/06/0N2A9449_websize-1-1.jpg?resize=1200%2C800" alt="Image 3">
+    </div>
+    <div>
+        <img src="https://hedgehogregistry.org/wp-content/uploads/2022/05/Can-Hedgehogs-Eat-Guinea-Pig-Food-What-You-Need-To-Know-2.jpg" alt="Image 3">
+    </div>
+    <div>
+        <img src="https://www.humanesociety.org/sites/default/files/2022-08/hl-yp-cats-579652.jpg" alt="Image 1">
+    </div>
+    <div>
+        <img src="https://d2zp5xs5cp8zlg.cloudfront.net/image-34080-800.jpg" alt="Image 1">
+    </div>
+    <div>
+        <img src="https://i.ytimg.com/vi/gypNpcRZY7U/maxresdefault.jpg" alt="Image 1">
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+        $('.slider').slick({
+            autoplay: true,
+            dots: true,
+            arrows: false
+        });
+    </script>
+}
+
+<style>
+    .slider {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+</style>
